@@ -71,7 +71,6 @@ const profileLinks = document.querySelectorAll('.profile');
 
 profileLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-        e.preventDefault();
 
         // Armazena perfil ativo no localStorage para uso em catalogo.html
         const profileName = link.querySelector('p').textContent;
