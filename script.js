@@ -79,9 +79,6 @@ profileLinks.forEach(link => {
 
         localStorage.setItem('perfilAtivoNome', profileName);
         localStorage.setItem('perfilAtivoImagem', profileImg);
-
-        // Redireciona para a página de catálogo em /catalogo/catalogo.html
-        window.location.href = '/catalogo/catalogo.html';
     });
 });
 
