@@ -71,8 +71,8 @@ body.light-theme {
 }
 
 body.light-theme .navbar {
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
+    background-color: #e6e6e6;
+    color: #222;
 }
 
 body.light-theme .navbar a,
@@ -94,12 +94,12 @@ body.light-theme .movie-card .details-info {
 }
 
 body.light-theme footer {
-    background-color: #f8f8f8;
-    color: #5a5a5a;
+    background-color: #e6e6e6;
+    color: #333;
 }
 
 body.light-theme .footer-links a {
-    color: #555;
+    color: #444;
 }
 
 .navbar-left,
