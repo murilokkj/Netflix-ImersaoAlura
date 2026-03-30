@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Netflix</title>
+</head>
+<body>
+
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Logo da Netflix">
+    <!-- Botão de alternar tema (clique altera entre escuro e claro) -->
+    <button class="theme-toggle" aria-label="Alternar tema">
+        <img src="assets/sun.svg" alt="Ícone do sol" class="theme-icon">
+    </button>
+
+    <!-- Área principal de seleção de perfil -->
+    <main>
+        <h1>Quem está assistindo?</h1>
+        <nav>
+            <ul class="profiles">
+                <li>
+                    <a href="./catalogo/catalogo.html" class="profile">
+                        <img src="assets/profile1.png" alt="Personagem feminina em estilo anime com cabelo loiro, olhos azuis e fones vermelhos, sorrindo em um cenário iluminado ao ar livre">
+                        <p>Maria</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./catalogo/catalogo.html" class="profile">
+                        <img src="assets/profile2.png" alt="Corgi cartoon fofo com olhos grandes e brilhantes, sorrindo com a língua de fora sobre um fundo azul estrelado">
+                        <p>João</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./catalogo/catalogo.html" class="profile">
+                        <img src="assets/profile3.png" alt="Emoji de carinha sorridente amarela centralizada em um fundo preto sólido">
+                        <p>Lucas</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./catalogo/catalogo.html" class="profile">
+                        <img src="assets/profile4.png" alt="Jovem ninja em estilo anime, com cabelo castanho cacheado em degradê, olhos castanhos e cavanhaque, fazendo sinal de mão com traje tático em cenário de vila">
+                        <p>Murilo</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <button class="manage-profiles">Gerenciar Perfis</button>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

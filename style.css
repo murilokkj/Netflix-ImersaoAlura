@@ -1,0 +1,370 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis de cores para os temas */
+:root {
+    --bg-primary: #141414;
+    --bg-secondary: #000;
+    --text-primary: #fff;
+    --text-secondary: #888888;
+    --accent-color: #f6121d;
+    --border-color: #888888;
+}
+
+body.light-theme {
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #ffffff;
+    --text-primary: #000;
+    --text-secondary: #555555;
+    --accent-color: #e50914;
+    --border-color: #cccccc;
+}
+
+/* Corpo da página
+   - definições de layout global
+   - centraliza conteúdo vertical e horizontalmente
+   - mantém altura total do viewport, sem scroll do body
+   - transição suave de cores no tema */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 8px;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Botão alternar tema
+   - position fixed para ficar sempre visível no canto
+   - dimensões quadradas com borda arredondada
+   - transições suaves de hover */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+    z-index: 1000;
+}
+
+/* Logo no canto superior direito */
+.logo {
+    position: fixed;
+    top: 3%;
+    left: 3%;
+    width: 200px;
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Ícone SVG do tema
+   - filtra para aplicar cor de acordo com tema
+   - tema escuro e claro usam saturate+brightness diferentes */
+.theme-icon {
+    width: 30px;
+    height: 30px;
+    filter: saturate(0) brightness(0.55);
+    transition: filter 0.3s ease;
+}
+
+body.light-theme .theme-icon {
+    filter: saturate(0) brightness(0.8);
+}
+
+@media (max-width: 768px) {
+    .theme-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .theme-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Container principal */
+main {
+    text-align: center;
+    max-width: 1000px;
+    width: 100%;
+    max-height: calc(100vh - 16px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Título */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-weight: normal;
+}
+
+/* Navegação dos perfis */
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+/* Lista de perfis */
+.profiles {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Item da lista */
+.profiles li {
+    display: flex;
+}
+
+/* Link do perfil */
+.profile {
+    display: block;
+    text-decoration: none;
+    color: var(--text-primary);
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.profile:hover {
+    transform: scale(1.1);
+}
+
+/* Imagem do perfil
+   - dimensões fixas para todos os perfis
+   - efeito hover com borda, zoom e sombra
+   - object-fit para manter proporções */
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 5%;
+    object-fit: cover;
+    margin-bottom: 0.75rem;
+    border: 3px solid transparent;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile:hover img {
+    border-color: var(--text-primary);
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Nome do perfil */
+.profile p {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+/* Botão gerenciar perfis */
+.manage-profiles {
+    margin-top: 2.5rem;
+    background-color: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    color: var(--text-secondary);
+    border-radius: 5px;
+    padding: 0.9rem 1.6rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.manage-profiles:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-1px);
+    border: none;
+    color: #fff;
+}
+
+.manage-profiles:active {
+    transform: translateY(0);
+}
+
+/* Media Queries - Responsividade para telas pequenas (celulares) */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .logo {
+        left: 5%;
+    }
+
+    .theme-toggle {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    .theme-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    main {
+        max-width: 100%;
+    }
+
+    /* Título responsivo */
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Lista de perfis em grid 2 colunas */
+    .profiles {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        justify-items: center;
+        margin-bottom: 1.5rem;
+        max-height: calc(100vh - 220px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 0.2rem;
+        overflow: visible;
+    }
+
+    /* Item da lista */
+    .profiles li {
+        display: flex;
+        justify-content: center;
+        overflow: visible;
+        padding: 0.4rem;
+    }
+
+    /* Link do perfil */
+    .profile {
+        display: block;
+        text-decoration: none;
+        color: var(--text-primary);
+        text-align: center;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    }
+
+    .profile:hover {
+        transform: scale(1.08);
+    }
+
+    /* Imagem do perfil - menor em celulares */
+    .profile img {
+        width: 100px;
+        height: 100px;
+        border-radius: 5%;
+        object-fit: cover;
+        margin-bottom: 0.5rem;
+        border: 3px solid transparent;
+        transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile:hover img {
+        border-color: var(--text-primary);
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+    }
+
+    /* Nome do perfil - menor em celulares */
+    .profile p {
+        font-size: 0.95rem;
+        font-weight: 400;
+    }
+
+    /* Botão responsivo */
+    .manage-profiles {
+        margin-top: 1.5rem;
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .logo {
+        left: 6%;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .theme-toggle {
+        top: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .theme-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .profiles {
+        gap: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .profile img {
+        width: 85px;
+        height: 85px;
+        margin-bottom: 0.4rem;
+    }
+
+    .profile p {
+        font-size: 0.85rem;
+    }
+
+    .manage-profiles {
+        margin-top: 1.2rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
